@@ -47,6 +47,28 @@ function getWeather (cityName) {
                 icon.innerHTML = `<img src="./img/${icon1}.png" style= 'height:10rem'/>`;
                 todaysWind.textContent = "Wind: " + Math.floor(data.wind.speed * 2.237) + "mph";
                 todaysHumidity.textContent = 'Humidity: ' + data.main.humidity + '%';
+
+
+
+                var uvAPI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly" + "&appid=" + APIkey + "&cnt=1";
+
+                fetch(uvAPI)
+                .then(function(response) {
+                    if (response.ok) {
+                        response.json().then(function(data) {
+                            console.log(data);
+
+                            todayUV.textContent = "UV Index: " + data.daily[0].uvi;
+                              if (data.daily[1].uvi < 2 ) {
+                                todaysUV.classList.add("bg-success");
+                              } else if (data.daily[0].uvi >= 3 && data.current.uvi < 7) {
+                                todaysUV.classList.add("bg-warning");
+                              }else if (data.daily[0].uvi >= 8){
+                                todaysUV.classList.add("bg-danger");
+                              }
+                        })
+                    }
+                })
             })
         }
     })
