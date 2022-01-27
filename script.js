@@ -40,7 +40,13 @@ function getWeather (cityName) {
                 console.log(lon);
 
 
-                
+                todaysDateEl.textContent = today.formaat("dddd, MMMM Do YYYY") + " in " + data.name;
+                todaysSummary.textContent = "Summary: Currently, " + data.name + " is experiencing " + data.weather[0].description + ".";
+                todaysTemp.textContent = "Temperature: " + Math.floor((data.main.temp - 273.15) * 1.8 +32) + "°F";
+                var icon1 = data.weather[0].icon;
+                icon.innerHTML = `<img src="./img/${icon1}.png" style= 'height:10rem'/>`;
+                todaysWind.textContent = "Wind: " + Math.floor(data.wind.speed * 2.237) + "mph";
+                todaysHumidity.textContent = 'Humidity: ' + data.main.humidity + '%';
             })
         }
     })
