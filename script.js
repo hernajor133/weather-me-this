@@ -75,7 +75,15 @@ function getWeather (cityName) {
                                 cardEl.className = "col bg-primary text-white rounded mx-2 mb-3 pb-2";
                                 cardContainer.append(cardEl);
 
-                                
+                                var cardDate = document.createElement('h5');
+                                cardDate.className = "mt-3 mb-0";
+                                let tomorrow  = moment().add([index],'days');
+                                cardDate.textContent = (tomorrow.format("L"));
+
+                                var cardIcon = document.createElement('div');
+                                cardIcon.classList.add("m-2")
+                                var forecastIcon = data.daily[index].weather[0].icon;
+                                cardIcon.innerHTML = `<img src="./assets/images/${forecastIcon}.png" style= 'height:4rem'/>`;
                               }
                         })
                     }
