@@ -84,6 +84,12 @@ function getWeather (cityName) {
                                 cardIcon.classList.add("m-2")
                                 var forecastIcon = data.daily[index].weather[0].icon;
                                 cardIcon.innerHTML = `<img src="./assets/images/${forecastIcon}.png" style= 'height:4rem'/>`;
+
+                                var cardTemp = document.createElement('p');
+                                cardTemp.classList.add("card-text");
+                                cardTemp.textContent = "Temp: " + Math.floor((data.daily[index].temp.day - 273.15) * 1.8 + 32) + "°F";
+
+                                
                               }
                         })
                     }
