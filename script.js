@@ -54,43 +54,51 @@ function getWeather (cityName) {
 
                 fetch(uvAPI)
                 .then(function(response) {
-                    if (response.ok) {
-                        response.json().then(function(data) {
-                            console.log(data);
+                if (response.ok) {
+                  response.json().then(function(data) {
+                    console.log(data);
 
-                            todayUV.textContent = "UV Index: " + data.daily[0].uvi;
-                              if (data.daily[1].uvi < 2 ) {
-                                todaysUV.classList.add("bg-success");
-                              } else if (data.daily[0].uvi >= 3 && data.current.uvi < 7) {
-                                todaysUV.classList.add("bg-warning");
-                              }else if (data.daily[0].uvi >= 8){
-                                todaysUV.classList.add("bg-danger");
-                              }
-
-
-                              for (let index = 0; index < 5; index++) {
+                    todayUV.textContent = "UV Index: " + data.daily[0].uvi;
+                      if (data.daily[1].uvi < 2 ) {
+                        todaysUV.classList.add("bg-success");
+                      } else if (data.daily[0].uvi >= 3 && data.current.uvi < 7) {
+                        todaysUV.classList.add("bg-warning");
+                      }else if (data.daily[0].uvi >= 8){
+                        todaysUV.classList.add("bg-danger");
+                      }
 
 
-                                var cardEl = document.createElement('div');
-                                cardEl.className = "col bg-primary text-white rounded mx-2 mb-3 pb-2";
-                                cardContainer.append(cardEl);
+                      for (let index = 0; index < 5; index++) {
 
-                                var cardDate = document.createElement('h5');
-                                cardDate.className = "mt-3 mb-0";
-                                let tomorrow  = moment().add([index],'days');
-                                cardDate.textContent = (tomorrow.format("L"));
 
-                                var cardIcon = document.createElement('div');
-                                cardIcon.classList.add("m-2")
-                                var forecastIcon = data.daily[index].weather[0].icon;
-                                cardIcon.innerHTML = `<img src="./assets/images/${forecastIcon}.png" style= 'height:4rem'/>`;
+                        var cardEl = document.createElement('div');
+                          cardEl.className = "col bg-primary text-white rounded mx-2 mb-3 pb-2";
+                          cardContainer.append(cardEl);
 
-                                var cardTemp = document.createElement('p');
-                                cardTemp.classList.add("card-text");
-                                cardTemp.textContent = "Temp: " + Math.floor((data.daily[index].temp.day - 273.15) * 1.8 + 32) + "°F";
+                        var cardDate = document.createElement('h5');
+                          cardDate.className = "mt-3 mb-0";
+                          let tomorrow  = moment().add([index],'days');
+                          cardDate.textContent = (tomorrow.format("L"));
 
-                                
-                              }
+                        var cardIcon = document.createElement('div');
+                          cardIcon.classList.add("m-2")
+                          var forecastIcon = data.daily[index].weather[0].icon;
+                          cardIcon.innerHTML = `<img src="./assets/images/${forecastIcon}.png" style= 'height:4rem'/>`;
+
+                        var cardTemp = document.createElement('p');
+                          cardTemp.classList.add("card-text");
+                          cardTemp.textContent = "Temp: " + Math.floor((data.daily[index].temp.day - 273.15) * 1.8 + 32) + "°F";
+
+                        var cardWind = document.createElement('p');
+                          cardWind.classList.add("card-text");
+                          cardWind.textContent = "Wind: " + Math.floor(data.daily[index].wind_speed * 2.237) + "mph";
+
+                        var cardHumidity = document.createElement('p');
+                          cardHumidity.classList.add("card-text");
+                          cardHumidity.textContent = "Wind: " + data.daily[index].humidity+ "%";
+
+                        cardEl.append(cardDate, cardIcon, cardTemp, cardWind, cardHumidity);
+                    }
                         })
                     }
                 })
@@ -98,4 +106,27 @@ function getWeather (cityName) {
         }
     })
 
+};
+
+var historyButtons = document.getElementsByClassName('hist-btn');
+var numButtons = historyButtons.length;
+console.log(numButtons);
+
+
+function renderSearchHistBtns() {
+    btnContainer.innerHTML = "";
+    for (let i=0; i<history.length; i++) {
+        const historyBtn = document.createElement("button");
+        historyBtn.setAttribute("type",text);
+        historyBtn.setAttribute("readonly",true);
+        historyBtn.setAttribute("class", "btn text-white btn-primary");
+        historyBtn.textContent = history[i];
+        historyBtn.setAttribute("value", history[i]);
+        historyBtn.addEventListener("click",function() {
+            todayUV.classList.remove("bg-success");
+            todayUV.classList.remove("bg-danger");
+            todayUV.classList.remove("bg-warning");
+        })
+        btnContainer.append(historyBtn);
+    }
 }
