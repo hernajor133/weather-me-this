@@ -24,4 +24,22 @@ function getWeather (cityName) {
     cardContainer.innerHTML = "";
     var APIkey = "256e015175e41b85d6b79c9fecee47d5";
     console.log(cityName);
+
+
+    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=' + APIkey;
+
+    fetch(requestUrl)
+    .then(function (response) {
+        if (response.ok) {
+            response.json().then(function (data){
+                console.log(data);
+
+                var lat = data.coord.lat;
+                var lon = data.coord.lon;
+                console.log(lat);
+                console.log(lon);
+            })
+        }
+    })
+
 }
