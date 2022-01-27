@@ -17,3 +17,4 @@ console.log(history)
 
 
 var today = moment();
+todaysDateEl.textContent = (today.format("dddd, MMMM Do YYYY"));
