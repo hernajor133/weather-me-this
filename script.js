@@ -66,6 +66,17 @@ function getWeather (cityName) {
                               }else if (data.daily[0].uvi >= 8){
                                 todaysUV.classList.add("bg-danger");
                               }
+
+
+                              for (let index = 0; index < 5; index++) {
+
+
+                                var cardEl = document.createElement('div');
+                                cardEl.className = "col bg-primary text-white rounded mx-2 mb-3 pb-2";
+                                cardContainer.append(cardEl);
+
+                                
+                              }
                         })
                     }
                 })
