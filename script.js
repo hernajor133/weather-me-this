@@ -130,3 +130,22 @@ function renderSearchHistBtns() {
         btnContainer.append(historyBtn);
     }
 }
+
+
+
+renderSearchHistBtns();
+if (history.length > 0) {
+    getWeather(history[history.length - 1]);
+}
+
+clearBtn.addEventListener("click",function() {
+    localStorage.removeItem("searchHistory");
+
+    history = [];
+    console.log(history);
+    renderSearchHistBtns();
+})
+
+
+
+function handleForm(event) {event.preventDefault();};
