@@ -18,3 +18,10 @@ console.log(history)
 
 var today = moment();
 todaysDateEl.textContent = (today.format("dddd, MMMM Do YYYY"));
+
+
+function getWeather (cityName) {
+    cardContainer.innerHTML = "";
+    var APIkey = "256e015175e41b85d6b79c9fecee47d5";
+    console.log(cityName);
+}
