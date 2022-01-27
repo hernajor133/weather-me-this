@@ -38,6 +38,9 @@ function getWeather (cityName) {
                 var lon = data.coord.lon;
                 console.log(lat);
                 console.log(lon);
+
+
+                
             })
         }
     })
