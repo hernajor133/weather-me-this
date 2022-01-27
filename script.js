@@ -149,3 +149,6 @@ clearBtn.addEventListener("click",function() {
 
 
 function handleForm(event) {event.preventDefault();};
+
+cityFormEl.addEventListener("submit", cityFunctionHandler);
+
