@@ -1,13 +1,70 @@
+
 #nav {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgb(255, 255, 255) 0px 3px 8px;
+    border-radius: 25px;
+}
+
+#nav2 {
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+}
+
+#search-btn {
+    background-color: white;
+    border-color: white;
+}
+
+#todays-date {
+    color: white;
+}
+
+#today-summary {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#today-temp {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#today-wind {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#today-humidity {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.container-fluid {
+    background-color: rgb(74, 157, 206)
 }
 
 #search-history-card {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgb(255, 255, 255) 0px 3px 8px;
+    border-radius: 25px;
 }
 
 #forecast-accordian {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgb(255, 255, 255) 0px 3px 8px;
+    border-radius: 25px;
+    border-color: white;
+}
+
+#accordian {
+    border-radius: 25px;
+    color: white;
+    background-color: rgb(74, 157, 206);
+    border-color: rgb(255, 255, 255);
+    box-shadow: rgb(255, 255, 255) 0px 3px 8px;
 }
 
 #main-content {
