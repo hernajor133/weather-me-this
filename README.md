@@ -4,7 +4,7 @@ they are presented with current and future conditions for that city. That city i
 
 
 ## Screenshot of webpage
-
+[./img/Weather-Me-This.png](./img/Weather-Me-This.png)
 
 
 ## Repo and  Deployed links
