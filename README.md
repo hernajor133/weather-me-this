@@ -8,6 +8,6 @@ they are presented with current and future conditions for that city. That city i
 
 
 ## Repo and  Deployed links
-Git hub repo link:
+Git hub repo link: https://github.com/hernajor133/weather-me-this.git
 
-Deployed link:
+Deployed link: https://hernajor133.github.io/weather-me-this/
